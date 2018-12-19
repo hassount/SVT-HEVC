@@ -1815,7 +1815,7 @@ void SetDefaultConfigurationParameters(
     sequenceControlSetPtr->enableQpScalingFlag = EB_TRUE;
 
     //Denoise
-    sequenceControlSetPtr->enableDenoiseFlag = EB_TRUE;
+    sequenceControlSetPtr->enableDenoiseFlag = (sequenceControlSetPtr->staticConfig.tune == TUNE_SQ) ? EB_TRUE : EB_FALSE;
 
     return;
 }
