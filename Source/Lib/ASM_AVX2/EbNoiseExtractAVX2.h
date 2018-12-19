@@ -18,7 +18,7 @@ extern "C" {
 * noiseExtractLumaWeak
 *  weak filter Luma and store noise.
 *******************************************/
-void noiseExtractLumaWeak_AVX2_INTRIN(
+void NoiseExtractLumaWeak_AVX2_INTRIN(
 	EbPictureBufferDesc_t       *inputPicturePtr,	
 	EbPictureBufferDesc_t       *denoisedPicturePtr,
 	EbPictureBufferDesc_t       *noisePicturePtr,   
@@ -26,7 +26,7 @@ void noiseExtractLumaWeak_AVX2_INTRIN(
 	EB_U32                       lcuOriginX
 	);
 
-void noiseExtractLumaWeakLcu_AVX2_INTRIN(
+void NoiseExtractLumaWeakLcu_AVX2_INTRIN(
 	EbPictureBufferDesc_t       *inputPicturePtr,
 	EbPictureBufferDesc_t       *denoisedPicturePtr,
 	EbPictureBufferDesc_t       *noisePicturePtr,
@@ -34,19 +34,19 @@ void noiseExtractLumaWeakLcu_AVX2_INTRIN(
 	EB_U32                       lcuOriginX
 	);
 
-void noiseExtractChromaStrong_AVX2_INTRIN(
+void NoiseExtractChromaStrong_AVX2_INTRIN(
 	EbPictureBufferDesc_t       *inputPicturePtr,
 	EbPictureBufferDesc_t       *denoisedPicturePtr,
 	EB_U32                       lcuOriginY,
 	EB_U32						 lcuOriginX);
 
-void noiseExtractChromaWeak_AVX2_INTRIN(
+void NoiseExtractChromaWeak_AVX2_INTRIN(
 	EbPictureBufferDesc_t       *inputPicturePtr,
 	EbPictureBufferDesc_t       *denoisedPicturePtr,
 	EB_U32                       lcuOriginY,
 	EB_U32						 lcuOriginX);
 
-void noiseExtractLumaStrong_AVX2_INTRIN(
+void NoiseExtractLumaStrong_AVX2_INTRIN(
 	EbPictureBufferDesc_t       *inputPicturePtr,
 	EbPictureBufferDesc_t       *denoisedPicturePtr,
 	EB_U32                       lcuOriginY,

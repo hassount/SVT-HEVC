@@ -1135,7 +1135,7 @@ EB_U8  getFilteredTypes(EB_U8  *ptr,
 * noiseExtractLumaStrong
 *  strong filter Luma.
 *******************************************/
-void noiseExtractLumaStrong(
+void NoiseExtractLumaStrong(
 	EbPictureBufferDesc_t       *inputPicturePtr,
 	EbPictureBufferDesc_t       *denoisedPicturePtr,
 	EB_U32                       lcuOriginY
@@ -1191,7 +1191,7 @@ void noiseExtractLumaStrong(
 * noiseExtractChromaStrong
 *  strong filter chroma.
 *******************************************/
-void noiseExtractChromaStrong(
+void NoiseExtractChromaStrong(
 	EbPictureBufferDesc_t       *inputPicturePtr,
 	EbPictureBufferDesc_t       *denoisedPicturePtr,
 	EB_U32                       lcuOriginY
@@ -1276,7 +1276,7 @@ void noiseExtractChromaStrong(
 * noiseExtractChromaWeak
 *  weak filter chroma.
 *******************************************/
-void noiseExtractChromaWeak(
+void NoiseExtractChromaWeak(
 	EbPictureBufferDesc_t       *inputPicturePtr,
 	EbPictureBufferDesc_t       *denoisedPicturePtr,
 	EB_U32                       lcuOriginY
@@ -1363,7 +1363,7 @@ void noiseExtractChromaWeak(
 * noiseExtractLumaWeak
 *  weak filter Luma and store noise.
 *******************************************/
-void noiseExtractLumaWeak(
+void NoiseExtractLumaWeak(
 	EbPictureBufferDesc_t       *inputPicturePtr,
 	EbPictureBufferDesc_t       *denoisedPicturePtr,
 	EbPictureBufferDesc_t       *noisePicturePtr,
@@ -1425,7 +1425,7 @@ void noiseExtractLumaWeak(
 
 }
 
-void noiseExtractLumaWeakLcu(
+void NoiseExtractLumaWeakLcu(
 	EbPictureBufferDesc_t       *inputPicturePtr,
 	EbPictureBufferDesc_t       *denoisedPicturePtr,
 	EbPictureBufferDesc_t       *noisePicturePtr,
@@ -2496,7 +2496,7 @@ EB_ERRORTYPE DenoiseInputPicture(
 
 			if (lcuOriginX + MAX_LCU_SIZE > inputPicturePtr->width)
 			{
-				noiseExtractLumaStrong(
+				NoiseExtractLumaStrong(
 					inputPicturePtr,
 					denoisedPicturePtr,
 					lcuOriginY,
@@ -2529,7 +2529,7 @@ EB_ERRORTYPE DenoiseInputPicture(
 
 			if (lcuOriginX + MAX_LCU_SIZE > inputPicturePtr->width)
 			{
-				noiseExtractChromaStrong(
+				NoiseExtractChromaStrong(
 					inputPicturePtr,
 					denoisedPicturePtr,
 					lcuOriginY / 2,
@@ -2582,7 +2582,7 @@ EB_ERRORTYPE DenoiseInputPicture(
 
 			if (lcuOriginX + MAX_LCU_SIZE > inputPicturePtr->width)
 			{
-				noiseExtractChromaWeak(
+				NoiseExtractChromaWeak(
 					inputPicturePtr,
 					denoisedPicturePtr,
 					lcuOriginY / 2,
@@ -2686,7 +2686,7 @@ EB_ERRORTYPE DetectInputPictureNoise(
 
 		if (lcuOriginX + MAX_LCU_SIZE > inputPicturePtr->width)
 		{
-			noiseExtractLumaWeak(
+			NoiseExtractLumaWeak(
 				inputPicturePtr,
 				denoisedPicturePtr,
 				noisePicturePtr,
@@ -2853,7 +2853,7 @@ EB_ERRORTYPE SubSampleFilterNoise(
 
 			if (lcuOriginX + MAX_LCU_SIZE > inputPicturePtr->width)
 			{
-				noiseExtractLumaWeak(
+				NoiseExtractLumaWeak(
 					inputPicturePtr,
 					denoisedPicturePtr,
 					noisePicturePtr,
@@ -2886,7 +2886,7 @@ EB_ERRORTYPE SubSampleFilterNoise(
 
 			if (lcuOriginX + MAX_LCU_SIZE > inputPicturePtr->width)
 			{
-				noiseExtractChromaWeak(
+				NoiseExtractChromaWeak(
 					inputPicturePtr,
 					denoisedPicturePtr,
 					lcuOriginY / 2,
@@ -2934,7 +2934,7 @@ EB_ERRORTYPE SubSampleFilterNoise(
 
 				if (lcuOriginX + MAX_LCU_SIZE > inputPicturePtr->width)
 				{
-					noiseExtractLumaWeakLcu(
+					NoiseExtractLumaWeakLcu(
 						inputPicturePtr,
 						denoisedPicturePtr,
 						noisePicturePtr,
@@ -3055,7 +3055,7 @@ EB_ERRORTYPE QuarterSampleDetectNoise(
 
 			if (block64x64Y + MAX_LCU_SIZE > quarterDecimatedPicturePtr->width)
 			{
-				noiseExtractLumaWeak(
+				NoiseExtractLumaWeak(
 					quarterDecimatedPicturePtr,
 					denoisedPicturePtr,
 					noisePicturePtr,
@@ -3191,15 +3191,15 @@ EB_ERRORTYPE SubSampleDetectNoise(
 
 			if (block64x64X == 0)
 				WeakLumaFilter_funcPtrArray[(ASM_TYPES & AVX2_MASK) && 1](
-				sixteenthDecimatedPicturePtr,
-				denoisedPicturePtr,
-				noisePicturePtr,
-				block64x64Y,
-				block64x64X);
+				    sixteenthDecimatedPicturePtr,
+				    denoisedPicturePtr,
+				    noisePicturePtr,
+				    block64x64Y,
+				    block64x64X);
 
 			if (block64x64Y + MAX_LCU_SIZE > sixteenthDecimatedPicturePtr->width)
 			{
-				noiseExtractLumaWeak(
+				NoiseExtractLumaWeak(
 					sixteenthDecimatedPicturePtr,
 					denoisedPicturePtr,
 					noisePicturePtr,
